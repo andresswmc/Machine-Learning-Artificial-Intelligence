@@ -53,16 +53,16 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 
 training_dataset = train_datagen.flow_from_directory('F:/machinelearning-az-master/datasets/Part 8 - Deep Learning/Section 40 - Convolutional Neural Networks (CNN)/dataset/training_set',
                                                     target_size=(64, 64),
-                                                    batch_size=32,
+                                                    batch_size=1,
                                                     class_mode='binary')
 
 testing_dataset = test_datagen.flow_from_directory('F:/machinelearning-az-master/datasets/Part 8 - Deep Learning/Section 40 - Convolutional Neural Networks (CNN)/dataset/test_set',
                                                 target_size=(64, 64),
-                                                batch_size=32,
+                                                batch_size=1,
                                                 class_mode='binary')
 
 classifier.fit_generator(training_dataset,
-                        steps_per_epoch=8000,
+                        steps_per_epoch=8000/1,
                         epochs=50,
                         validation_data=testing_dataset,
-                        validation_steps=2000)
+                        validation_steps=2000/1)
